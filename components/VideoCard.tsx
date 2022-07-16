@@ -7,7 +7,7 @@ import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import { BsPlay } from "react-icons/bs";
 
-import { Video } from "./../types";
+import { Video } from "../types";
 
 interface IProps {
   post: Video;
@@ -71,14 +71,16 @@ const VideoCard: NextPage<IProps> = ({
           <div className="md:w-16 md:h-16 w-10 h-10">
             <Link href={`/profile/${postedBy?._id}`}>
               <>
-                <Image
-                  width={62}
-                  height={62}
-                  className=" rounded-full"
-                  src={postedBy?.image}
-                  alt="user-profile"
-                  layout="responsive"
-                />
+                {postedBy && postedBy.image && (
+                  <Image
+                    width={62}
+                    height={62}
+                    className=" rounded-full"
+                    src={postedBy?.image}
+                    alt="user-profile"
+                    layout="responsive"
+                  />
+                )}
               </>
             </Link>
           </div>
@@ -86,11 +88,11 @@ const VideoCard: NextPage<IProps> = ({
             <Link href={`/profile/${postedBy?._id}`}>
               <div className="flex items-center gap-2">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
-                  {postedBy.userName}{" "}
+                  {postedBy?.userName}
                   <GoVerified className="text-blue-400 text-md" />
                 </p>
                 <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
-                  {postedBy.userName}
+                  {postedBy?.userName}
                 </p>
               </div>
             </Link>

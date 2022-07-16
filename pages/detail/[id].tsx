@@ -27,9 +27,6 @@ const Detail = ({ postDetails }: IProps) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
-
-  console.log(post);
-
   const { userProfile }: any = useAuthStore();
 
   const onVideoClick = () => {
@@ -172,7 +169,6 @@ export const getServerSideProps = async ({
   params: { id: string };
 }) => {
   const { data } = await axios.get(`${BASE_URL}/api/post/${id}`);
-  console.log(data);
   return {
     props: {
       postDetails: data,
