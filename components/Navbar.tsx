@@ -43,7 +43,7 @@ function Navbar() {
         </div>
       </Link>
 
-      <div className="relative hidde md:block">
+      <div className="relative hidden md:block">
         <form
           onSubmit={handleSearch}
           className="absolute md:static top-20 -left-20 bg-white"
